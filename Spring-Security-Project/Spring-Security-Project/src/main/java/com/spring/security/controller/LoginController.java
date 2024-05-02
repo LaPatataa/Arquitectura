@@ -8,7 +8,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(){
-        return "login2";
+        return "http://localhost:4200/calendario";
     }
 
     @GetMapping("/403")
