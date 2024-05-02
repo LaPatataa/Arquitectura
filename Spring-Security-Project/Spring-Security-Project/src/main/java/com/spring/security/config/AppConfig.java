@@ -53,7 +53,8 @@ public class AppConfig {
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/sign-in")
-                .defaultSuccessUrl("/home/index", true)
+                // No redirecciona automáticamente
+                //.defaultSuccessUrl("/home/index", true)
                 .permitAll()
                 .and()
                 .logout()
@@ -61,7 +62,8 @@ public class AppConfig {
                 .deleteCookies("JSESSIONID")
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
+                // No redirecciona automáticamente
+                //.logoutSuccessUrl("/login?logout")
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/403")
@@ -72,7 +74,6 @@ public class AppConfig {
                 .and()
                 .oauth2Login()
                 .loginPage("/login")
-                .defaultSuccessUrl("/home/index", true)
                 .userInfoEndpoint()
                 .userService(custom0Auth2UserDetailService)
                 .and()
@@ -80,10 +81,10 @@ public class AppConfig {
                 .failureHandler(customOAuth2FailureHandler)
                 .and()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-        ;
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
         return http.build();
     }
+
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(){
         return (web) ->
