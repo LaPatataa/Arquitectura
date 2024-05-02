@@ -16,7 +16,7 @@ public class HomeController {
     public String hello(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("authentication", authentication);
-        return "http://localhost:4200/calendario";
+        return "redirect:http://localhost:4200/calendario";
     }
 
 

@@ -54,7 +54,7 @@ public class AppConfig {
                 .loginPage("/login")
                 .loginProcessingUrl("/sign-in")
                 // No redirecciona automáticamente
-                //.defaultSuccessUrl("/home/index", true)
+                .defaultSuccessUrl("/home/index", true)
                 .permitAll()
                 .and()
                 .logout()
@@ -63,7 +63,7 @@ public class AppConfig {
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 // No redirecciona automáticamente
-                //.logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/login?logout")
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/403")
